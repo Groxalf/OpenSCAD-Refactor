@@ -2,7 +2,10 @@ FINE_CYLINDERS_QUALITY = 100;
 $fn = FINE_CYLINDERS_QUALITY;
 
 module CameraMountBase() {
-	cube([29, 28, 8]);
+	lenght = 29;
+	width = 28;
+	height = 8;
+	cube([lenght, width, height]);
 }
 
 module CameraMount() {
