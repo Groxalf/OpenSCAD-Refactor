@@ -13,20 +13,21 @@ module Standoffs() {
 	front_x_offset = 25.5;
 	right_y_offset = 17.5;
 	left_y_offset = 4;
+	z_offset = 8;
 
-  	translate([back_x_offset, left_y_offset, 8]){                
+  	translate([back_x_offset, left_y_offset, z_offset]){                
     	cylinder(r = 3, h = 3);
    	}
    	         
-   	translate([front_x_offset, left_y_offset, 8]){
+   	translate([front_x_offset, left_y_offset, z_offset]){
    		cylinder(r = 3, h = 3);
     }
             
-    translate([back_x_offset, right_y_offset, 8]){
+    translate([back_x_offset, right_y_offset, z_offset]){
     	cylinder(r = 3, h = 3);
     }
             
-    translate([front_x_offset, right_y_offset, 8]){
+    translate([front_x_offset, right_y_offset, z_offset]){
     	cylinder(r = 3, h = 3);
     }
 }
