@@ -1,10 +1,14 @@
 FINE_CYLINDERS_QUALITY = 100;
 $fn = FINE_CYLINDERS_QUALITY;
 
+module CameraMountBase() {
+	cube([29, 28, 8]);
+}
+
 module CameraMount() {
     difference(){
         union(){
-            cube([29, 28, 8]);
+            CameraMountBase();
             
             // Standoffs
             translate([3.5, 4, 8]){                
