@@ -10,9 +10,9 @@ module CameraMountBase() {
 
 module Standoffs() {
 	back_x_offset = 3.5;
-	front_x_offset = 25.5;
-	right_y_offset = 17.5;
+	front_x_offset = back_x_offset + 22;
 	left_y_offset = 4;
+	right_y_offset = left_y_offset + 13.5;
 	z_offset = 8;
 
   	translate([back_x_offset, left_y_offset, z_offset]){                
