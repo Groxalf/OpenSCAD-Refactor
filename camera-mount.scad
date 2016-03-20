@@ -10,9 +10,11 @@ module CameraMountBase() {
 
 module CreateStandoffWith(offset_x, offset_y) {
 	z_offset = 8;
+	radius = 3;
+	height = 3;
 
 	translate([offset_x, offset_y, z_offset]){                
-    	cylinder(r = 3, h = 3);
+    	cylinder(r = radius, h = height);
    	}	
 }
 
