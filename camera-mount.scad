@@ -30,39 +30,41 @@ module Standoffs() {
 	CreateStandoffWith(front_x_offset, right_y_offset);
 }
 
+module ArmConnector() {
+    difference(){
+        hull(){
+            translate([7.5, 28, 0]){
+                cube([14, 5, 8]);
+                
+                difference(){
+                    translate([0, 7, 4]){
+                        rotate([0, 90, 0]){
+                            cylinder(r = 4, h = 14);
+                        }
+                    }
+                }
+            } 
+        }
+        
+        translate([7.5, 35, 4]){
+            rotate([0, 90, 0]){
+                cylinder(r = 1.4, h = 14);
+            }
+        }
+        
+        translate([10.5, 28, 0]){
+            cube([8, 12, 8]);
+        }
+    }
+}
+
 module CameraMount() {
 	difference(){
       	union(){
         	CameraMountBase();
-       	Standoffs();     
-            
-            // Arm connector
-            difference(){
-                hull(){
-                    translate([7.5, 28, 0]){
-                        cube([14, 5, 8]);
-                        
-                        difference(){
-                            translate([0, 7, 4]){
-                                rotate([0, 90, 0]){
-                                    cylinder(r = 4, h = 14);
-                                }
-                            }
-                        }
-                    } 
-                }
-                
-                translate([7.5, 35, 4]){
-                    rotate([0, 90, 0]){
-                        cylinder(r = 1.4, h = 14);
-                    }
-                }
-                
-                translate([10.5, 28, 0]){
-                    cube([8, 12, 8]);
-                }
-            }
-        }
+       	Standoffs();   
+			ArmConnector();
+    	}
         
         // Holes
         translate([3.5, 4, -1]){
