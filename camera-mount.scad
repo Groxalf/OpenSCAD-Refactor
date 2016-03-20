@@ -11,20 +11,22 @@ module CameraMountBase() {
 module Standoffs() {
 	back_x_offset = 3.5;
 	front_x_offset = 25.5;
+	right_y_offset = 17.5;
+	left_y_offset = 4;
 
-  	translate([back_x_offset, 4, 8]){                
+  	translate([back_x_offset, left_y_offset, 8]){                
     	cylinder(r = 3, h = 3);
    	}
    	         
-   	translate([front_x_offset, 4, 8]){
+   	translate([front_x_offset, left_y_offset, 8]){
    		cylinder(r = 3, h = 3);
     }
             
-    translate([back_x_offset, 17.5, 8]){
+    translate([back_x_offset, right_y_offset, 8]){
     	cylinder(r = 3, h = 3);
     }
             
-    translate([front_x_offset, 17.5, 8]){
+    translate([front_x_offset, right_y_offset, 8]){
     	cylinder(r = 3, h = 3);
     }
 }
