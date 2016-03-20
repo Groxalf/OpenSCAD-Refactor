@@ -4,31 +4,33 @@ $fn = FINE_CYLINDERS_QUALITY;
 module CameraMountBase() {
 	lenght = 29;
 	width = 28;
-	height = 8;
+	height = 9;
 	cube([lenght, width, height]);
 }
 
+module Standoffs() {
+  	translate([3.5, 4, 8]){                
+    	cylinder(r = 3, h = 3);
+   	}
+   	         
+   	translate([25.5, 4, 8]){
+   		cylinder(r = 3, h = 3);
+    }
+            
+    translate([3.5, 17.5, 8]){
+    	cylinder(r = 3, h = 3);
+    }
+            
+    translate([25.5, 17.5, 8]){
+    	cylinder(r = 3, h = 3);
+    }
+}
+
 module CameraMount() {
-    difference(){
-        union(){
-            CameraMountBase();
-            
-            // Standoffs
-            translate([3.5, 4, 8]){                
-                cylinder(r = 3, h = 3);
-            }
-            
-            translate([25.5, 4, 8]){
-                cylinder(r = 3, h = 3);
-            }
-            
-            translate([3.5, 17.5, 8]){
-                cylinder(r = 3, h = 3);
-            }
-            
-            translate([25.5, 17.5, 8]){
-                cylinder(r = 3, h = 3);
-            }
+	difference(){
+      	union(){
+        	CameraMountBase();
+       	Standoffs();     
             
             // Arm connector
             difference(){
