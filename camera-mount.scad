@@ -33,9 +33,10 @@ module Standoffs() {
 	CreateStandoffWith(front_x_offset, right_y_offset);
 }
 
-module BaseArmConnector(origin_offset, dimensions) {
+module BaseArmsConnector(origin_offset, dimensions) {
     relative_cylinder_offset = [0, 7, 4];
     radius = calculateRadius(dimensions[2]);
+    
     hull(){
         translate(origin_offset)
             cube(dimensions);
@@ -46,13 +47,13 @@ module BaseArmConnector(origin_offset, dimensions) {
     }
 }
 
-module ArmConnector() {
+module ArmsConnector() {
     
     origin_offset = [7.5, 28, 0];
     base_dimensions = [14, 5, 8];
     
     difference(){
-        BaseArmConnector(origin_offset, base_dimensions);
+        BaseArmsConnector(origin_offset, base_dimensions);
         
         
         translate([10.5, 28, 0]){
@@ -73,7 +74,7 @@ module CameraMount() {
       	union(){
         	CameraMountBase();
        	Standoffs();   
-			ArmConnector();
+			ArmsConnector();
     	}
         
         // Holes
