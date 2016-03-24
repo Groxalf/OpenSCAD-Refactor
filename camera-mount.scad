@@ -31,10 +31,20 @@ module Standoffs() {
 }
 
 module ArmConnector() {
+    
+    x_offset = 7.5;
+    y_offset = 28;
+    z_offset = 0;
+    
+    length = 14;
+    width = 5;
+    height = 8;
+    
+    
     difference(){
         hull(){
-            translate([7.5, 28, 0]){
-                cube([14, 5, 8]);
+            translate([x_offset, y_offset, z_offset]){
+                cube([length, width, height]);
              
                 translate([0, 7, 4])
                     rotate([0, 90, 0])
