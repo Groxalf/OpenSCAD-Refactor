@@ -2,6 +2,7 @@ FINE_CYLINDERS_QUALITY = 100;
 $fn = FINE_CYLINDERS_QUALITY;
 HORIZONTAL_BACK_ROTATION = [0, 90, 0];
 
+function calculateRadius(diameter) = diameter / 2; 
 
 module CameraMountBase() {
 	lenght = 29;
@@ -34,13 +35,14 @@ module Standoffs() {
 
 module BaseArmConnector(origin_offset, dimensions) {
     relative_cylinder_offset = [0, 7, 4];
+    radius = calculateRadius(dimensions[2]);
     hull(){
         translate(origin_offset)
             cube(dimensions);
         
         translate(origin_offset + relative_cylinder_offset)
             rotate(HORIZONTAL_BACK_ROTATION)
-                cylinder(r = 4, h = dimensions[0]);
+                cylinder(r = radius, h = dimensions[0]);
     }
 }
 
