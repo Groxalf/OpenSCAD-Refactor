@@ -1,5 +1,7 @@
 FINE_CYLINDERS_QUALITY = 100;
 $fn = FINE_CYLINDERS_QUALITY;
+HORIZONTAL_BACK_ROTATION = [0, 90, 0];
+
 
 module CameraMountBase() {
 	lenght = 29;
@@ -31,8 +33,6 @@ module Standoffs() {
 }
 
 module BaseArmConnector(origin_offset, dimensions) {
-    horizontal_back_rotation = [0, 90, 0];
-    
     cylinder_y_offset = origin_offset[1] + 7;
     cylinder_z_offset = origin_offset[2] + 4;
     hull(){
@@ -40,7 +40,7 @@ module BaseArmConnector(origin_offset, dimensions) {
         cube(dimensions);
         
         translate([origin_offset[0], cylinder_y_offset, cylinder_z_offset])
-        rotate(horizontal_back_rotation)
+        rotate(HORIZONTAL_BACK_ROTATION)
         cylinder(r = 4, h = 14);
     }
 }
@@ -55,12 +55,13 @@ module ArmConnector() {
     difference(){
         BaseArmConnector(origin_offset, base_dimensions);
         
+        
         translate([10.5, 28, 0]){
             cube([8, 12, 8]);
         }
         
         translate([7.5, 35, 4]){
-            rotate(horizontal_back_rotation){
+            rotate(HORIZONTAL_BACK_ROTATION){
                 cylinder(r = 1.4, h = 14);
             }
         }
