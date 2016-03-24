@@ -35,15 +35,17 @@ module ArmConnector() {
         hull(){
             translate([7.5, 28, 0]){
                 cube([14, 5, 8]);
-                
-                difference(){
-                    translate([0, 7, 4]){
-                        rotate([0, 90, 0]){
-                            cylinder(r = 4, h = 14);
-                        }
-                    }
-                }
-            } 
+             
+                translate([0, 7, 4])
+                    rotate([0, 90, 0])
+                        cylinder(r = 4, h = 14);
+                    
+             
+            }
+        }
+        
+        translate([10.5, 28, 0]){
+            cube([8, 12, 8]);
         }
         
         translate([7.5, 35, 4]){
@@ -52,9 +54,6 @@ module ArmConnector() {
             }
         }
         
-        translate([10.5, 28, 0]){
-            cube([8, 12, 8]);
-        }
     }
 }
 
