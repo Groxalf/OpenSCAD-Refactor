@@ -43,15 +43,12 @@ module ArmConnector() {
     
     difference(){
         hull(){
-            translate([x_offset, y_offset, z_offset]){
+            translate([x_offset, y_offset, z_offset])
                 cube([length, width, height]);
              
-                translate([0, 7, 4])
-                    rotate([0, 90, 0])
-                        cylinder(r = 4, h = 14);
-                    
-             
-            }
+            translate([x_offset, y_offset + 7, z_offset + 4])
+                rotate([0, 90, 0])
+                    cylinder(r = 4, h = 14);
         }
         
         translate([10.5, 28, 0]){
