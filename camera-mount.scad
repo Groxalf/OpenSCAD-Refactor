@@ -47,6 +47,13 @@ module BaseArmsConnector(origin_offset, dimensions) {
     }
 }
 
+module GapBetweenArms(origin_position) {
+    gap_offset = [3, 0, 0];
+    
+    translate(origin_position + gap_offset)
+            cube([8, 12, 8]);
+}    
+
 module ArmsConnector() {
     
     origin_offset = [7.5, 28, 0];
@@ -54,11 +61,9 @@ module ArmsConnector() {
     
     difference(){
         BaseArmsConnector(origin_offset, base_dimensions);
+        GapBetweenArms(origin_offset);
         
         
-        translate([10.5, 28, 0]){
-            cube([8, 12, 8]);
-        }
         
         translate([7.5, 35, 4]){
             rotate(HORIZONTAL_BACK_ROTATION){
