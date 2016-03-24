@@ -55,10 +55,12 @@ module GapBetweenArms(origin_position, dimensions) {
             cube(dimensions);
 }
 
-module ArmHole() {
-    translate([7.5, 35, 4]){
+module ArmHole(origin_position, length) {
+    offset = [0, 7, 4];
+    radius = 1.4;
+    translate(origin_position + offset){
         rotate(HORIZONTAL_BACK_ROTATION){
-            cylinder(r = 1.4, h = 14);
+            cylinder(r = radius, h = length);
         }
     }
 }    
@@ -71,7 +73,7 @@ module ArmsConnector() {
     difference(){
         BaseArmsConnector(origin_position, base_dimensions);
         GapBetweenArms(origin_position);
-        ArmHole();
+        ArmHole(origin_position, base_dimensions[0]);
     }
 }
 
