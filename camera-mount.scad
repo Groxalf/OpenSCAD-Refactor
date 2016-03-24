@@ -43,6 +43,11 @@ module ArmConnector() {
     width = 5;
     height = 8;
     
+    cylinder_x_degree = 0;
+    cylinder_y_degree = 90;
+    cylinder_z_degree = 0;
+    
+    
     
     difference(){
         hull(){
@@ -50,7 +55,7 @@ module ArmConnector() {
                 cube([length, width, height]);
              
             translate([x_offset, cylinder_y_offset, cylinder_z_offset])
-                rotate([0, 90, 0])
+                rotate([cylinder_x_degree, cylinder_y_degree,cylinder_z_degree])
                     cylinder(r = 4, h = 14);
         }
         
