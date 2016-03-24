@@ -77,15 +77,8 @@ module ArmsConnector() {
     }
 }
 
-module CameraMount() {
-	difference(){
-      	union(){
-        	CameraMountBase();
-       	Standoffs();   
-			ArmsConnector();
-    	}
-        
-        // Holes
+module CreateHoles() {
+    
         translate([3.5, 4, -1]){
             cylinder(r = 1.25, h = 20);
         }
@@ -101,6 +94,18 @@ module CameraMount() {
         translate([25.5, 17.5, -1]){
             cylinder(r = 1.25, h = 20);
         }
+}
+
+
+module CameraMount() {
+	difference(){
+      	union(){
+        	CameraMountBase();
+            Standoffs();   
+			ArmsConnector();
+    	}
+        CreateHoles();
+       
     }
 }
 
