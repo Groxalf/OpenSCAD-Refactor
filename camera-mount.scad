@@ -47,11 +47,12 @@ module BaseArmsConnector(origin_position, dimensions) {
     }
 }
 
-module GapBetweenArms(origin_position) {
-    gap_offset = [3, 0, 0];
+module GapBetweenArms(origin_position, dimensions) {
+    offset = [3, 0, 0];
+    dimensions = [8, 12, 8];
     
-    translate(origin_position + gap_offset)
-            cube([8, 12, 8]);
+    translate(origin_position + offset)
+            cube(dimensions);
 }    
 
 module ArmsConnector() {
