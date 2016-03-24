@@ -33,15 +33,14 @@ module Standoffs() {
 }
 
 module BaseArmConnector(origin_offset, dimensions) {
-    cylinder_y_offset = origin_offset[1] + 7;
-    cylinder_z_offset = origin_offset[2] + 4;
+    relative_cylinder_offset = [0, 7, 4];
     hull(){
         translate(origin_offset)
-        cube(dimensions);
+            cube(dimensions);
         
-        translate([origin_offset[0], cylinder_y_offset, cylinder_z_offset])
-        rotate(HORIZONTAL_BACK_ROTATION)
-        cylinder(r = 4, h = 14);
+        translate(origin_offset + relative_cylinder_offset)
+            rotate(HORIZONTAL_BACK_ROTATION)
+                cylinder(r = 4, h = dimensions[0]);
     }
 }
 
@@ -49,8 +48,6 @@ module ArmConnector() {
     
     origin_offset = [7.5, 28, 0];
     base_dimensions = [14, 5, 8];
-    
-    horizontal_back_rotation = [0, 90, 0];
     
     difference(){
         BaseArmConnector(origin_offset, base_dimensions);
