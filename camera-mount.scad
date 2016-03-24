@@ -32,12 +32,10 @@ module Standoffs() {
 
 module ArmConnector() {
     
-    x_offset = 7.5;
-    y_offset = 28;
-    z_offset = 0;
+    origin_offset = [7.5, 28, 0];
     
-    cylinder_y_offset = y_offset + 7;
-    cylinder_z_offset = z_offset + 4;
+    cylinder_y_offset = origin_offset[1] + 7;
+    cylinder_z_offset = origin_offset[2] + 4;
     
     length = 14;
     width = 5;
@@ -47,10 +45,10 @@ module ArmConnector() {
     
     difference(){
         hull(){
-            translate([x_offset, y_offset, z_offset])
+            translate(origin_offset)
                 cube([length, width, height]);
              
-            translate([x_offset, cylinder_y_offset, cylinder_z_offset])
+            translate([origin_offset[0], cylinder_y_offset, cylinder_z_offset])
                 rotate(horizontal_back_rotation)
                     cylinder(r = 4, h = 14);
         }
