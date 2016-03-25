@@ -11,10 +11,8 @@ STANDOFF_RIGHT_POSITION = STANDOFF_LEFT_POSITION + 13.5;
 function calculateRadius(diameter) = diameter / 2; 
 
 module CameraMountBase() {
-	lenght = 29;
-	width = 28;
-	height = 9;
-	cube([lenght, width, height]);
+    dimensions = [29, 28, 9];
+	cube(dimensions);
 }
 
 module CreateStandoff(position) {
