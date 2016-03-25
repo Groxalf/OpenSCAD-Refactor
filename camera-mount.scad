@@ -78,10 +78,14 @@ module ArmsConnector() {
     }
 }
 
+module CreateHole(position) {
+    translate(position){
+        cylinder(r = 1.25, h = 20);
+    }
+}
+
 module Holes() {
-        translate([3.5, 4, -1]){
-            cylinder(r = 1.25, h = 20);
-        }
+    CreateHole([STANDOFF_BACK_X_POSITION, STANDOFF_LEFT_Y_POSITION, -1]);
         
         translate([25.5, 4, -1]){
             cylinder(r = 1.25, h = 20);
