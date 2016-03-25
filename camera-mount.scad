@@ -2,6 +2,12 @@ FINE_CYLINDERS_QUALITY = 100;
 $fn = FINE_CYLINDERS_QUALITY;
 HORIZONTAL_BACK_ROTATION = [0, 90, 0];
 
+STANDOFF_BACK_X_POSITION = 3.5;
+STANDOFF_FRONT_X_POSITION = STANDOFF_BACK_X_POSITION + 22;
+STANDOFF_LEFT_Y_POSITION = 4;
+STANDOFF_RIGHT_Y_POSITION = STANDOFF_LEFT_Y_POSITION + 13.5;
+
+
 function calculateRadius(diameter) = diameter / 2; 
 
 module CameraMountBase() {
@@ -22,15 +28,10 @@ module CreateStandoffWith(offset_x, offset_y) {
 }
 
 module Standoffs() {
-	back_x_offset = 3.5;
-	front_x_offset = back_x_offset + 22;
-	left_y_offset = 4;
-	right_y_offset = left_y_offset + 13.5;
-
-	CreateStandoffWith(back_x_offset, left_y_offset);
-	CreateStandoffWith(front_x_offset, left_y_offset);
-	CreateStandoffWith(back_x_offset, right_y_offset);
-	CreateStandoffWith(front_x_offset, right_y_offset);
+	CreateStandoffWith(STANDOFF_BACK_X_POSITION, STANDOFF_LEFT_Y_POSITION);
+	CreateStandoffWith(STANDOFF_FRONT_X_POSITION, STANDOFF_LEFT_Y_POSITION);
+	CreateStandoffWith(STANDOFF_BACK_X_POSITION, STANDOFF_RIGHT_Y_POSITION);
+	CreateStandoffWith(STANDOFF_FRONT_X_POSITION, STANDOFF_RIGHT_Y_POSITION);
 }
 
 module BaseArmsConnector(origin_position, dimensions) {
@@ -78,7 +79,6 @@ module ArmsConnector() {
 }
 
 module Holes() {
-    
         translate([3.5, 4, -1]){
             cylinder(r = 1.25, h = 20);
         }
