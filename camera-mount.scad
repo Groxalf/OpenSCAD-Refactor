@@ -17,21 +17,21 @@ module CameraMountBase() {
 	cube([lenght, width, height]);
 }
 
-module CreateStandoffWith(offset_x, offset_y) {
-	z_offset = 8;
+module CreateStandoff(position) {
 	radius = 3;
 	height = 3;
 
-	translate([offset_x, offset_y, z_offset]){                
+	translate(position){                
     	cylinder(r = radius, h = height);
    	}	
 }
 
 module Standoffs() {
-	CreateStandoffWith(STANDOFF_BACK_POSITION, STANDOFF_LEFT_POSITION);
-	CreateStandoffWith(STANDOFF_FRONT_POSITION, STANDOFF_LEFT_POSITION);
-	CreateStandoffWith(STANDOFF_BACK_POSITION, STANDOFF_RIGHT_POSITION);
-	CreateStandoffWith(STANDOFF_FRONT_POSITION, STANDOFF_RIGHT_POSITION);
+    z_offset = 8;
+	CreateStandoff([STANDOFF_BACK_POSITION, STANDOFF_LEFT_POSITION, z_offset]);
+	CreateStandoff([STANDOFF_FRONT_POSITION, STANDOFF_LEFT_POSITION, z_offset]);
+	CreateStandoff([STANDOFF_BACK_POSITION, STANDOFF_RIGHT_POSITION, z_offset]);
+	CreateStandoff([STANDOFF_FRONT_POSITION, STANDOFF_RIGHT_POSITION, z_offset]);
 }
 
 module BaseArmsConnector(origin_position, dimensions) {
