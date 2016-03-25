@@ -86,18 +86,9 @@ module CreateHole(position) {
 
 module Holes() {
     CreateHole([STANDOFF_BACK_X_POSITION, STANDOFF_LEFT_Y_POSITION, -1]);
-        
-        translate([25.5, 4, -1]){
-            cylinder(r = 1.25, h = 20);
-        }
-        
-        translate([3.5, 17.5, -1]){
-            cylinder(r = 1.25, h = 20);
-        }
-        
-        translate([25.5, 17.5, -1]){
-            cylinder(r = 1.25, h = 20);
-        }
+    CreateHole([STANDOFF_FRONT_X_POSITION, STANDOFF_LEFT_Y_POSITION, -1]);
+    CreateHole([STANDOFF_BACK_X_POSITION, STANDOFF_RIGHT_Y_POSITION, -1]);
+    CreateHole([STANDOFF_FRONT_X_POSITION, STANDOFF_RIGHT_Y_POSITION, -1]);
 }
 
 
